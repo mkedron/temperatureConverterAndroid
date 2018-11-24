@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import pl.edu.vistula.mkedron.temperatureconverter.util.ConvertUnitsHelper;
+
 public class MainActivity extends AppCompatActivity {
+
+    private ConvertUnitsHelper convertUnitsHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Float convertCel2Fahr(Float celValue) {
-        return ((celValue * 9) / 5) + 32;
+        return convertUnitsHelper.convertCel2Fahr(celValue);
     }
 
     private Float convertFahtr2Cel(Float fahrValue) {
-        return ((fahrValue - 32) * 5 / 9);
+        return convertUnitsHelper.convertFahtr2Cel(fahrValue);
     }
 }
